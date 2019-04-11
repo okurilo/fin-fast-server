@@ -17,21 +17,4 @@ const budgetScheme = new mongoose.Schema({
         budget: {type: Number, default: 0 }
     }
 });
-// const dateSchema = new mongoose.Schema({
-//     createDate: Date,
-//     createTime: String
-// });
-// const costsSchema = new mongoose.Schema({
-//     description: String,
-//     title: {
-//         type: String,
-//         required: true
-//     },
-//     status: {
-//         type: String,
-//         'default': 0
-//     },
-//     date: dateSchema,
-//     img: Buffer
-// });
-mongoose.model('Costs', budgetScheme);
+mongoose.model('Budget', budgetScheme);
