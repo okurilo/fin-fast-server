@@ -1,5 +1,7 @@
 "use strict";
 
+require("@babel/polyfill");
+
 require("dotenv/config");
 
 var _express = _interopRequireDefault(require("express"));
