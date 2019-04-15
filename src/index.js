@@ -1,4 +1,3 @@
-import "@babel/polyfill";
 import 'dotenv/config';
 import express from 'express';
 import bodyParser from 'body-parser';
