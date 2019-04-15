@@ -15,7 +15,9 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false }
 }))
-
+app.get('/', (req, res) => {
+  return res.send(`Success`);
+});
 app.use('/session', routes.session);
 app.use('/user', routes.user);
 app.use('/budget', routes.budget);

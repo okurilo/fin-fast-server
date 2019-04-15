@@ -20,7 +20,6 @@ function checkAuth(req, res, next) {
 /* GET home page. */
 router.get('/', checkAuth, apiController.budgetByUser);
 router.post('/', checkAuth, function(req, res) {
-    console.log('11')
     models.Budget.create({
         income: req.body.income,
         // startDay: req.body.startDay,
