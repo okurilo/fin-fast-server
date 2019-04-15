@@ -61,3 +61,4 @@ router.post('/reg', function (req, res) {
 });
 var _default = router;
 exports["default"] = _default;
+//# sourceMappingURL=user.js.map

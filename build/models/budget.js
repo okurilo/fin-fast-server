@@ -58,3 +58,4 @@ var Budget = _mongoose["default"].model('Budget', budgetScheme);
 
 var _default = Budget;
 exports["default"] = _default;
+//# sourceMappingURL=budget.js.map

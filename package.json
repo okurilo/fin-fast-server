@@ -6,8 +6,8 @@
   "scripts": {
     "devstart": "nodemon --exec babel-node --inspect src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src --out-dir build",
-    "start": "node build/index.js"
+    "build": "babel -d ./build ./src -s",
+    "start": "npm run build && node ./build/index.js"
   },
   "keywords": [],
   "author": "Oleg Kurilo",
@@ -21,6 +21,7 @@
     "nodemon": "^1.18.11"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",

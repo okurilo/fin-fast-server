@@ -28,3 +28,4 @@ var User = _mongoose["default"].model('Users', userSchema);
 
 var _default = User;
 exports["default"] = _default;
+//# sourceMappingURL=user.js.map

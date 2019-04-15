@@ -66,3 +66,4 @@ router["delete"]('/', function (req, res) {
 });
 var _default = router;
 exports["default"] = _default;
+//# sourceMappingURL=budget.js.map

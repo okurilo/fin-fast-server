@@ -1,6 +1,6 @@
 "use strict";
 
-require("@babel/polyfill");
+require("babel-polyfill");
 
 require("dotenv/config");
 
@@ -73,3 +73,4 @@ regeneratorRuntime.mark(function _callee() {
     }
   }, _callee);
 })));
+//# sourceMappingURL=index.js.map
