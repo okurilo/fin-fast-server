@@ -32,10 +32,11 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
   });
-
+  
+app.set('port', process.env.PORT || 3000);
 connectDb().then(async () => {
-  app.listen(3000, () => {
-      console.log('Listen port 3000!')
+  app.listen(app.get('port'), () => {
+      console.log(`Listen port ${app.get('port')}!`)
       console.log('Hello Node.js project.');
       console.log(process.env.MONGOLAB_URI);
   });
