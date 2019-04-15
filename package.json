@@ -1,23 +1,27 @@
 {
-  "name": "fin-fast-server",
-  "version": "0.0.0",
-  "private": true,
+  "name": "fin-fast-srv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www",
-    "devstart": "nodemon --inspect ./bin/www"
+    "start": "nodemon --exec babel-node src/index.js",
+    "devstart": "nodemon --exec babel-node --inspect src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Oleg Kurilo",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "nodemon": "^1.18.11"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
+    "body-parser": "^1.18.3",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
     "express-session": "^1.16.1",
-    "http-errors": "~1.6.2",
-    "jade": "~1.11.0",
-    "mongodb": "^3.2.3",
-    "mongoose": "^5.5.0",
-    "morgan": "~1.9.0"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.11"
+    "mongoose": "^5.5.1"
   }
 }

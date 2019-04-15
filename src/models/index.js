@@ -1,12 +1,12 @@
-var mongoose = require('mongoose');
-var dbURI = 'mongodb://localhost/okurilo';
+import mongoose from 'mongoose';
 
-if (true || process.env.NODE_ENV === 'production') {
-    dbURI = 'mongodb://okurilo:08041993oO@ds016118.mlab.com:16118/finfast';
-    // dbURI = process.env.MONGOLAB_URI;
-}//mongo ds040167.mlab.com:40167/nodenote -u okurilo -p 08041993oO
+import User from './user';
+import Budget from './budget';
 
-mongoose.connect(dbURI, {useNewUrlParser: true});
+const dbURI = process.env.MONGOLAB_URI;
+const connectDb = () => {
+  return mongoose.connect(process.env.MONGOLAB_URI);
+};
 
 mongoose.connection.on('connected', () => {
     console.log('Mongoose connected to ' + dbURI);
@@ -26,23 +26,27 @@ const gracefulShutdown = (msg, callback) => {
 // For nodemon restarts
 process.once('SIGUSR2', function() {
     gracefulShutdown('nodemon restart', function() {
-        console.log("pshhhhhh....");
+        console.log("Disconnect....");
         process.kill(process.pid, 'SIGUSR2');
     });
 });
 // For app termination
 process.on('SIGINT', function() {
     gracefulShutdown('app termination', function() {
-        console.log("pshhhhhh....");
+        console.log("Disconnect....");
         process.exit(0);
     });
 });
 // For Heroku app termination
 process.on('SIGTERM', function() {
     gracefulShutdown('Heroku app termination', function() {
-        console.log("pshhhhhh....");
+        console.log("Disconnect....");
         process.exit(0);
     });
 });
 
-require('./budget');
+const models = { User, Budget };
+
+export { connectDb };
+
+export default models;

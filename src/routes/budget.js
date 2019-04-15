@@ -1,12 +1,12 @@
-var mongoose = require('mongoose');
-var Budget = mongoose.model('Budget');
+import { Router } from 'express';
+import mongoose from 'mongoose';
+import models from '../models';
+import apiController from '../controllers/apiController';
 
-var express = require('express');
-var router = express.Router();
+const router = Router();
+const Budget = new models.Budget();
 
-var apiController = require('../controllers/apiController');
-
-var sendJsonResponse = (res, status, content) => {
+const sendJsonResponse = (res, status, content) => {
     res.status( status );
     res.json( content )
 }
@@ -18,9 +18,10 @@ function checkAuth(req, res, next) {
     }
   }
 /* GET home page. */
-router.get('/budget', checkAuth, apiController.budgetByUser);
-router.post('/budget', checkAuth, function(req, res) {
-    Budget.create({
+router.get('/', checkAuth, apiController.budgetByUser);
+router.post('/', checkAuth, function(req, res) {
+    console.log('11')
+    models.Budget.create({
         income: req.body.income,
         // startDay: req.body.startDay,
         startDay: new Date(),
@@ -48,4 +49,4 @@ router.delete('/', function(req, res) {
     res.send('respond with a resource');
 });
 
-module.exports = router;
+export default router;

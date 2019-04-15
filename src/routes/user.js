@@ -1,8 +1,9 @@
-var mongoose = require('mongoose');
-var Users = mongoose.model('Users');
+import { Router } from 'express';
+import mongoose from 'mongoose';
+import models from '../models';
 
-var express = require('express');
-var router = express.Router();
+const router = Router();
+// const Users = mongoose.model('Users');
 
 // var apiController = require('../controllers/api');
 
@@ -10,7 +11,7 @@ router.post('/login', function (req, res) {
     var post = req.body;
     var userId = post.userId,
         password = post.password;
-    Users
+      models.User
         .find({"username": userId})
         .exec(function (err, user) {
             if (err) return sendJsonResponse(res, 400, err);
@@ -47,4 +48,4 @@ router.post('/reg', function (req, res) {
     });
 });
 
-module.exports = router;
+export default router;

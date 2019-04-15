@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+import mongoose from 'mongoose';
 var Schema = mongoose.Schema;
 
 const costsSchema = new Schema({
@@ -19,10 +19,6 @@ const budgetScheme = new Schema({
     },
     user: String
 });
+const Budget = mongoose.model('Budget', budgetScheme);
 
-var userSchema = new Schema({
-    username: { type: String, required: true, index: { unique: true } },
-    password: { type: String, required: true }
-});
-mongoose.model('Budget', budgetScheme);
-mongoose.model('Users', userSchema);
+export default Budget;
